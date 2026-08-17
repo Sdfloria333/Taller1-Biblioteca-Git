@@ -34,8 +34,9 @@ public class Main {
         }
     }
 
-    void update(int id, String name, int phone, String email) {
+    void UPDATE(int id, String name, int phone, String email) {
         Client client = searchClient(id);
+
         if (client != null) {
             client.setName(name);
             client.setPhone(phone);
@@ -44,5 +45,16 @@ public class Main {
             System.out.println("Cliente no encontrado");
         }
 
+    }
+
+    void DELETE(int id) {
+        Client client = searchClient(id);
+
+        if (client != null) {
+            clients.remove(client);
+            System.out.println("Cliente eliminado");
+        } else {
+            System.out.println("Cliente no encontrado");
+        }
     }
 }
