@@ -18,7 +18,7 @@ public class Main {
         clients.add(newClient);
     }
 
-    Client buscarCliente(int id) {
+    Client searchClient(int id) {
         for (Client client : clients) {
             if (client.getId() == id) {
                 return client;
@@ -32,5 +32,17 @@ public class Main {
         for (Client c : clients) {
             System.out.println(c);
         }
+    }
+
+    void update(int id, String name, int phone, String email) {
+        Client client = searchClient(id);
+        if (client != null) {
+            client.setName(name);
+            client.setPhone(phone);
+            client.setEmail(email);
+        } else {
+            System.out.println("Cliente no encontrado");
+        }
+
     }
 }
