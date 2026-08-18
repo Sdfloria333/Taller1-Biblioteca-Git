@@ -79,4 +79,15 @@ public class Main {
 
         return null;
     }
+
+    void updateBook(String code, String title, String datePublic) {
+        Book book = searchBook(code);
+
+        if (book != null) {
+            book.setTitle(title);
+            book.setDatePublic(datePublic);
+        } else {
+            System.out.println("Libro no encontrado");
+        }
+    }
 }
