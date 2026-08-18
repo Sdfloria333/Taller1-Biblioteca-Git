@@ -69,4 +69,14 @@ public class Main {
             System.out.println(book);
         }
     }
+
+    Book searchBook(String code) {
+        for (Book book : books) {
+            if (book.getCode().equals(code)) {
+                return book;
+            }
+        }
+
+        return null;
+    }
 }
