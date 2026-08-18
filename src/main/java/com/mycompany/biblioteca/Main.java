@@ -7,6 +7,7 @@ public class Main {
 
     static ArrayList<Client> clients = new ArrayList<>();
     static ArrayList<Book> books = new ArrayList<>();
+    static ArrayList<Loan> loans = new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -101,4 +102,19 @@ public class Main {
             System.out.println("Libro no encontrado");
         }
     }
+
+    void crearPrestamo(String idLoan, String state, int idClient, String codeBook, String date) {
+        Client client = searchClient(idClient);
+        Book book = searchBook(codeBook);
+
+        if (client != null && book != null) {
+            Loan newLoan = new Loan(idLoan, state, client, book, date);
+            loans.add(newLoan);
+            book.setAvailable("No");
+            System.out.println("Préstamo registrado");
+        } else {
+            System.out.println("Cliente o libro no encontrado");
+        }
+    }
+
 }
