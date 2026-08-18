@@ -90,4 +90,15 @@ public class Main {
             System.out.println("Libro no encontrado");
         }
     }
+
+    void deleteBook(String code) {
+        Book book = searchBook(code);
+
+        if (book != null) {
+            books.remove(book);
+            System.out.println("Libro eliminado");
+        } else {
+            System.out.println("Libro no encontrado");
+        }
+    }
 }
