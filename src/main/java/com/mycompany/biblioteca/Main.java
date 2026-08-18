@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class Main {
 
     static ArrayList<Client> clients = new ArrayList<>();
+    static ArrayList<Book> books = new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -55,6 +56,49 @@ public class Main {
             System.out.println("Cliente eliminado");
         } else {
             System.out.println("Cliente no encontrado");
+        }
+    }
+
+    void createBook(String code, String title, String datePublic, String author, String available) {
+        Book newBook = new Book(code, title, datePublic, author, available);
+        books.add(newBook);
+    }
+
+    void listBooks() {
+        for (Book book : books) {
+            System.out.println(book);
+        }
+    }
+
+    Book searchBook(String code) {
+        for (Book book : books) {
+            if (book.getCode().equals(code)) {
+                return book;
+            }
+        }
+
+        return null;
+    }
+
+    void updateBook(String code, String title, String datePublic) {
+        Book book = searchBook(code);
+
+        if (book != null) {
+            book.setTitle(title);
+            book.setDatePublic(datePublic);
+        } else {
+            System.out.println("Libro no encontrado");
+        }
+    }
+
+    void deleteBook(String code) {
+        Book book = searchBook(code);
+
+        if (book != null) {
+            books.remove(book);
+            System.out.println("Libro eliminado");
+        } else {
+            System.out.println("Libro no encontrado");
         }
     }
 }
