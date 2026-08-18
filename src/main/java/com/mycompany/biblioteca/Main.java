@@ -130,5 +130,9 @@ public class Main {
         System.out.println("Préstamo no encontrado");
     }
 
-    
+    void listarPrestamos() {
+        for (Loan loan : loans) {
+            System.out.println(loan);
+        }
+    }
 }
