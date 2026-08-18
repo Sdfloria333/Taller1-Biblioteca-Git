@@ -63,4 +63,10 @@ public class Main {
         Book newBook = new Book(code, title, datePublic, author, available);
         books.add(newBook);
     }
+
+    void listBooks() {
+        for (Book book : books) {
+            System.out.println(book);
+        }
+    }
 }
