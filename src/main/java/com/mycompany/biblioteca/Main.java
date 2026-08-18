@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class Main {
 
     static ArrayList<Client> clients = new ArrayList<>();
+    static ArrayList<Book> books = new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -56,5 +57,10 @@ public class Main {
         } else {
             System.out.println("Cliente no encontrado");
         }
+    }
+
+    void createBook(String code, String title, String datePublic, String author, String available) {
+        Book newBook = new Book(code, title, datePublic, author, available);
+        books.add(newBook);
     }
 }
