@@ -117,4 +117,18 @@ public class Main {
         }
     }
 
+    void devolucion(String idLoan) {
+        for (Loan loan : loans) {
+            if (loan.getIdLoan().equals(idLoan)) {
+                loan.setState("Devuelto");
+                loan.getBook().setAvailable("Si");
+                System.out.println("Devolución registrada");
+                return;
+            }
+        }
+
+        System.out.println("Préstamo no encontrado");
+    }
+
+    
 }
